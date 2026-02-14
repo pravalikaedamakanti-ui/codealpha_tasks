@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Activity</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <div class="card">
+        <h2>Add Daily Activity</h2>
+
+        <form action="/add-activity" method="POST">
+            <input type="date" name="date" required>
+            <input type="number" name="steps" placeholder="Steps Walked" required>
+            <input type="number" name="calories" placeholder="Calories Burned" required>
+            <input type="text" name="workout" placeholder="Workout Type" required>
+            <button type="submit">Save Activity</button>
+        </form>
+
+        <a href="/" class="back">⬅ Back Home</a>
+    </div>
+</body>
+</html>

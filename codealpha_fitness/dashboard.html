@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <div class="card">
+        <h2>📊 Activity Dashboard</h2>
+        <div id="table-container"></div>
+        <a href="/" class="back">⬅ Back Home</a>
+    </div>
+
+<script>
+fetch('/data')
+.then(res => res.json())
+.then(data => {
+    let table = `
+        <table>
+            <tr>
+                <th>Date</th>
+                <th>Steps</th>
+                <th>Calories</th>
+                <th>Workout</th>
+            </tr>
+    `;
+
+    data.forEach(row => {
+        table += `
+            <tr>
+                <td>${row.created_at.split('T')[0]}</td>
+                <td>${row.steps}</td>
+                <td>${row.calories}</td>
+                <td>${row.workout_type}</td>
+            </tr>
+        `;
+    });
+
+    table += "</table>";
+    document.getElementById("table-container").innerHTML = table;
+});
+</script>
+</body>
+</html>
